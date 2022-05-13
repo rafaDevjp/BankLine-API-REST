@@ -1,5 +1,6 @@
 package com.dio.santander.bankLine.api.Model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -12,7 +13,10 @@ public class Movimentacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Column(name = "data_hora")
     private LocalDateTime dataHora;
     private String descricao;
     private Double valor;
@@ -21,6 +25,8 @@ public class Movimentacao {
     private MovimentacaoTipo tipo;
 
     @Column(name = "id_conta")
-    private Integer idConta;
+    private Long idConta;
+
+
 
 }

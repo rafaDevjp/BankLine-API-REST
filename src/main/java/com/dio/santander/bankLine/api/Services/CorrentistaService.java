@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.Optional;
 
 @Service
 public class CorrentistaService {
@@ -26,4 +27,10 @@ public class CorrentistaService {
         correntista.setConta(conta);
         repository.save(correntista);
     }
-}
+
+    public Correntista findById(Long id){
+        Optional<Correntista> obj = repository.findById(id);
+        return obj.orElseThrow();
+    }
+
+}//END_CLASS

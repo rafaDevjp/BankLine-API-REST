@@ -6,10 +6,12 @@ import com.dio.santander.bankLine.api.Model.Movimentacao;
 import com.dio.santander.bankLine.api.Model.MovimentacaoTipo;
 import com.dio.santander.bankLine.api.Repository.CorrentistaRepository;
 import com.dio.santander.bankLine.api.Repository.MovimentacaoRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 public class MovimentacaoService {
@@ -38,4 +40,11 @@ public class MovimentacaoService {
         repository.save(movimentacao);
 
     }
-}
+
+    public Movimentacao findById(Long id){
+        Optional<Movimentacao> obj = repository.findById(id);
+        return obj.orElseThrow();
+    }
+
+
+}//END_CLASS

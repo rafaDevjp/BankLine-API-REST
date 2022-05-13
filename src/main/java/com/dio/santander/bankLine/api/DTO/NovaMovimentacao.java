@@ -15,6 +15,6 @@ public class NovaMovimentacao {
 
     private MovimentacaoTipo tipo;
 
-    private Integer idConta;
+    private Long idConta;
 
 }
